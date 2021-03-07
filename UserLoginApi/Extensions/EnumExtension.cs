@@ -27,11 +27,11 @@ namespace UserLoginApi.Extensions
         }
 
 
-        //public static int GetValue<T>(this Enum currentEnum)
-        //{
-        //    var result= Convert.ToInt32((T)Enum.Parse(typeof(T), currentEnum.ToString()));
-        //    return result;
-        //}
+        public static int GetValue<T>(this Enum currentEnum)
+        {
+            var result = Convert.ToInt32((T)Enum.Parse(typeof(T), currentEnum.ToString()));
+            return result;
+        }
 
         public static int GetValue(this Enum value)
         {
@@ -42,6 +42,11 @@ namespace UserLoginApi.Extensions
             }
 
             return Convert.ToInt32(value);
+        }
+
+        public static int ToInteger(this System.Enum value)
+        {
+            return value.GetHashCode();
         }
     }
 }

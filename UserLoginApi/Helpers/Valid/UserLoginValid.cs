@@ -62,7 +62,10 @@ namespace UserLoginApi.Helpers.Valid
         public UserResponseModel GetErrorResponse(Enum errorEnum)
         {
             var dictMethod = GetErrorResponseDictMethod();
-            return dictMethod[errorEnum.GetValue()](errorEnum);
+            return dictMethod[errorEnum.ToInteger()](errorEnum);
+
+            //return dictMethod[errorEnum.GetValue<UserLoginErrorResultEnum>()](UserLoginSuccessResultEnum.test);
+
         }
 
         /// <summary>
@@ -75,7 +78,7 @@ namespace UserLoginApi.Helpers.Valid
             UserResponseModel userResponse = new UserResponseModel();
 
             userResponse.success = (int)UserLoginSuccessResultEnum.fail;
-            userResponse.errorCode = errorEnum.GetValue();
+            userResponse.errorCode = errorEnum.ToInteger();
             userResponse.errorMessage = errorEnum.GetDescription();
             return userResponse;
         }

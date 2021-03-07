@@ -7,6 +7,6 @@ namespace UserLoginApi.Helpers.Enums
 {
     public enum UserLoginSuccessResultEnum
     {
-        success=1,fail=0
+        success=1,fail=0,test=5
     }
 }
