@@ -26,13 +26,24 @@ namespace UserLoginApi.Extensions
             return description;
         }
 
-
+        /// <summary>
+        /// 傳入Enum參數來取得值，並依照傳入的泛型來規範值的範圍
+        /// </summary>
+        /// <typeparam name="T">供傳入值解析用的泛型</typeparam>
+        /// <param name="currentEnum">傳入的Enum參數</param>
+        /// <returns></returns>
         public static int GetValue<T>(this Enum currentEnum)
         {
             var result = Convert.ToInt32((T)Enum.Parse(typeof(T), currentEnum.ToString()));
             return result;
         }
 
+
+        /// <summary>
+        /// 傳入Enum參數來取得Int值
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static int GetValue(this Enum value)
         {
             var type = value.GetType();
@@ -44,6 +55,12 @@ namespace UserLoginApi.Extensions
             return Convert.ToInt32(value);
         }
 
+
+        /// <summary>
+        /// 傳入Enum參數來取得值
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static int ToInteger(this System.Enum value)
         {
             return value.GetHashCode();
